@@ -1,0 +1,15 @@
+---
+- hosts: all
+  tasks:
+    - name: install apache2
+      apt: name=apache2 update_cache=yes state=latest
+    - name: install git
+      apt: name=git
+    - name: insatall php5
+      apt: name=php5
+    - name: install php5-lib
+      apt: name=libapache2-mod-php5
+    - name: install php5-cli
+      apt: name=php5-cli
+    - name: install mysql 5.6
+      apt: name=mysql-server-5.6
