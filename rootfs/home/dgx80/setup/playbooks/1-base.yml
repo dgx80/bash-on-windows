@@ -1,0 +1,51 @@
+---
+- hosts: all
+  tasks:
+    - name: update cache
+      apt: update_cache=yes state=latest
+    - name: upgrade package
+      apt: upgrade=dist
+    - name: install libncurses-dev
+      apt: name=libncurses-dev
+    - name: install apache2
+      apt: name=apache2
+    - name: install git
+      apt: name=git
+    - name: install php5
+      apt: name=php5
+    - name: install php5-curl
+      apt: name=php5-curl
+    - name: install php5-lib
+      apt: name=libapache2-mod-php5
+    - name: install php5-cli
+      apt: name=php5-cli
+    - name: install php5-intl
+      apt: name=php5-intl
+    - name: install php5-gd
+      apt: name=php5-gd
+    - name: install php5-ldap
+      apt: name=php5-ldap
+    - name: install php5-mysql
+      apt: name=php5-mysql
+    - name: install php-pear
+      apt: name=php-pear
+    - name: install php5-xdebug
+      apt: name=php5-xdebug
+    - name: install php5-dev
+      apt: name=php5-dev
+    - name: install php5-mcrypt
+      apt: name=php5-mcrypt
+    - name: install curl
+      apt: name=curl
+    - name: install subversion
+      apt: name=subversion
+    - name: install vim
+      apt: name=vim
+    - name: install php5-dev
+      apt: name=php5-dev
+    - name: install php5-dev
+      apt: name=php5-dev
+    - name: install php5-dev
+      apt: name=php5-dev
+    - name: install mysql 5.6
+      apt: name=mysql-server-5.6
