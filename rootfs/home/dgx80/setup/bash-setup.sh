@@ -7,28 +7,30 @@ PC_HOST=jp.dev.$HOST
 PC_NAME=pc-dev
 WINDOWS_HOME=/mnt/c/Users/Razan/
 
-link_target () {
-  if [ -d $2 ];
-  then
-    echo "symlink already exists"
-  else
-    $3 ln -s $1 $2
-  fi
-}
-
-
 # Absolute path to this script, e.g. /home/user/bin/foo.sh
 SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/bin
 SCRIPT_PATH=$(dirname "$SCRIPT")
 DGX80_PATH=${SCRIPT_PATH%/setup}
 ROOT_FS_PATH=${DGX80_PATH%/home/dgx80}
+HOME=$ROOT_FS_PATH/home/razan
+W_WEB=/mnt/c/web
 
 #add lx-tool in your user folder
-link_target $DGX80_PATH /home/dgx80 sudo
+sudo ln -sfn $DGX80_PATH /home/dgx80
+
+#rootfs
+sudo ln -sfn $ROOT_FS_PATH /home/rootfs
 
 #ssh
-link_target $WINDOWS_HOME/.ssh ~/.ssh
+ln -sfn $WINDOWS_HOME/.ssh ~/.ssh
+
+#gitconfig
+ln -sfn $HOME/.gitconfig ~/.gitconfig
+
+#web
+sudo ln -sfn $W_WEB /home/www
+ln -sfn /home/www ~/www
 
 #ansible Modules
 sudo apt-get install software-properties-common
